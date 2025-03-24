@@ -22,6 +22,6 @@
 
 <script setup>
 import logo from '@/img/logo.png'
-import Cart from '@/components/Cart.vue'
-import Search from './Search.vue';
+import Cart from '@/components/headerComponents/Cart.vue'
+import Search from '@/components/headerComponents/Search.vue';
 </script>
