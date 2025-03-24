@@ -4,13 +4,11 @@
       <div>
         <img :src="logo" alt="logo de arci" width="150">
       </div>
-      
-      <!-- input y shooping -->
+
+      <!-- input y cart -->
       <div class="flex justify-between w-full gap-5 mt-2 sm:mt-0">
-        <div class="w-[500px] m-auto gap-2 bg-white px-4 flex items-center justify-between rounded-lg ">
-          <input class="w-full outline-none py-1.5 text-base bg-transparent" type="text" placeholder="Buscar">
-          <MagnifyingGlassIcon class="size-5 hover:cursor-pointer" />
-        </div>
+        <!-- input de busqueda -->
+        <Search/>
 
         <!-- Carrito -->
         <Cart/>
@@ -24,6 +22,6 @@
 
 <script setup>
 import logo from '@/img/logo.png'
-import { MagnifyingGlassIcon } from '@heroicons/vue/24/solid';
 import Cart from '@/components/Cart.vue'
+import Search from './Search.vue';
 </script>
