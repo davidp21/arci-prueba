@@ -1,6 +1,6 @@
 <template>
-  <div class="md:px-10 py-4 bg-orange-400">
-    <ul class="flex flex-col md:flex-row w-full items-center">
+  <div class="md:px-10 py-4 bg-white shadow-md w-full ">
+    <ul class="flex flex-col md:flex-row max-w-[1740px] items-center m-auto gap-4">
         <div class="w-[10%] flex items-center gap-2 border-r h-10">
             <Bars3Icon class="size-5"/>
             <li><router-link>Categorias</router-link></li>

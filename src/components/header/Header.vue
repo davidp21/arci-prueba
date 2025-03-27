@@ -1,6 +1,6 @@
 <template>
   <div class="bg-orange-500 w-full px-4 shadow-lg">
-    <div class="max-w-[1800px] flex flex-col md:flex-row items-center justify-between m-auto py-2">
+    <div class="max-w-[1740px] flex flex-col md:flex-row items-center justify-between m-auto py-2">
       <div>
         <img :src="logo" alt="logo de arci" width="150">
       </div>
