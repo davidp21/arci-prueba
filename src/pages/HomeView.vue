@@ -1,12 +1,12 @@
 <template>
   <div>
-    <h1>Home View</h1>
+    <Hero/>
   </div>
 </template>
 
 
 <script setup>
-
+import Hero from '../components/Hero.vue';
 </script>
 
 

@@ -1,34 +1,32 @@
 <template>
-  <div class="hidden lg:block md:px-10 py-4 bg-white shadow-md w-full font-medium">
-    <ul class="flex flex-col md:flex-row max-w-[1740px] items-center m-auto gap-4 justify-between">
-        <div class="w-[13%] flex items-center gap-2 border-r h-10">
-            <Bars3Icon class="size-5"/>
-            <li><router-link>Categorias</router-link></li>
-        </div>
-        <div class="flex w-full justify-center gap-20">
-          <li><router-link>Inicio</router-link></li>
-          <li><router-link>Sobre nosotros</router-link></li>
-          <div class="flex items-center gap-1">
-            <li><router-link>Mas Vendidos</router-link></li>
-            <ChevronDownIcon class="size-4"/>
-          </div>
-          <li><router-link>Contacto</router-link></li>
-        </div>
-        <div class="flex items-center gap-2 justify-center">
-          <BanknotesIcon class="size-5"/>
-          <li><router-link>Promociones</router-link></li>
-        </div>
+  <div 
+    class="fixed top-0 left-0 w-64 h-full bg-white shadow-md transition-transform duration-500 ease-in-out z-50 lg:hidden"
+    :class="menuOpen ? 'translate-x-0' : '-translate-x-full'"
+  >
+    <!-- Botón de cierre -->
+    <button @click="$emit('close-menu')" class="p-4">✖ Cerrar</button>
+    <ul class="flex flex-col p-6 gap-4">
+      <li><router-link class="flex items-center gap-2"><Bars3Icon class="size-5" /> Categorías</router-link></li>
+      <li><router-link to="#">Inicio</router-link></li>
+      <li><router-link to="#">Sobre nosotros</router-link></li>
+      <li class="flex items-center gap-1"><router-link to="#">Más Vendidos</router-link><ChevronDownIcon class="size-4" /></li>
+      <li><router-link to="#">Contacto</router-link></li>
+      <li class="flex items-center gap-2"><BanknotesIcon class="size-5" /><router-link to="#">Promociones</router-link></li>
     </ul>
   </div>
+
+  <!-- Fondo oscuro para cerrar el menú -->
+  <div 
+    v-if="menuOpen" 
+    class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 lg:hidden transition-opacity duration-500"
+    @click="$emit('close-menu')"
+  ></div>
 </template>
 
-
 <script setup>
-import { Bars3Icon} from '@heroicons/vue/24/solid';
-import { BanknotesIcon,ChevronDownIcon } from '@heroicons/vue/24/outline';
+import { Bars3Icon, ChevronDownIcon } from "@heroicons/vue/24/solid";
+import { BanknotesIcon } from "@heroicons/vue/24/outline";
+
+defineProps(["menuOpen"]);
 </script>
 
-
-<style scoped>
-  
-</style>
