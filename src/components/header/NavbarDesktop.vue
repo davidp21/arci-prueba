@@ -1,30 +1,29 @@
 <template>
-  <div class="bg-white shadow-md w-full py-4 hidden lg:block">
-    <ul class="flex flex-row items-center justify-center max-w-[1740px] m-auto gap-6 font-medium">
-      <!-- Categorías con menú desplegable -->
-      <li class="relative group">
-        <router-link class="flex items-center gap-2 hover:cursor-pointer">
-          <Bars3Icon class="size-5" /> Categorías
-        </router-link>
-        <!-- Lista desplegable hacia abajo -->
+  <div class="lg:flex justify-between w-full hidden bg-white shadow-md py-4 font-medium px-24">
+    <!-- Categorías al principio con lista desplegable -->
+    <ul class="flex items-center gap-4 relative">
+      <li class="flex items-center gap-2 relative group">
+        <Bars3Icon class="size-5" />
+        <router-link to="#">Categorías</router-link>
+        <!-- Lista desplegable -->
         <ul
-          class="absolute top-full left-0 bg-white shadow-lg border rounded-lg p-10 z-50 hidden group-hover:block transition-all duration-300 ease-in-out overflow-y-scroll h-[300px]">
-          <li class="hover:bg-gray-100 p-2"><router-link to="/abrasivos">Abrasivos</router-link></li>
-          <li class="hover:bg-gray-100 p-2"><router-link to="/automotriz">Automotriz</router-link></li>
-          <li class="hover:bg-gray-100 p-2"><router-link to="/herramientas">Cerrajerias</router-link></li>
-          <li class="hover:bg-gray-100 p-2"><router-link to="/herramientas">Cintas adhesivas</router-link></li>
-          <li class="hover:bg-gray-100 p-2"><router-link to="/herramientas">Construcción</router-link></li>
-          <li class="hover:bg-gray-100 p-2"><router-link to="/herramientas">Domestico</router-link></li>
-          <li class="hover:bg-gray-100 p-2"><router-link to="/herramientas">Electricidad</router-link></li>
-          <li class="hover:bg-gray-100 p-2"><router-link to="/herramientas">Herramientas</router-link></li>
-          <li class="hover:bg-gray-100 p-2"><router-link to="/herramientas">Impermeabilización</router-link></li>
-          <li class="hover:bg-gray-100 p-2"><router-link to="/herramientas">Pegamentos</router-link></li>
-          <li class="hover:bg-gray-100 p-2"><router-link to="/herramientas">Pinturas y accesorios</router-link></li>
-          <li class="hover:bg-gray-100 p-2"><router-link to="/herramientas">Plomeria</router-link></li>
-          <li class="hover:bg-gray-100 p-2"><router-link to="/herramientas">Seguridad</router-link></li>
-          <li class="hover:bg-gray-100 p-2"><router-link to="/herramientas">Soldadura</router-link></li>
+          class="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md opacity-0 invisible hover:cursor-pointer group-hover:opacity-100 group-hover:visible group-hover:flex flex-col transition-all ease-in-out z-10 w-48 py-2"
+        >
+          <li class="px-4 py-2 hover:bg-gray-100">
+            <router-link to="#">Categoría 1</router-link>
+          </li>
+          <li class="px-4 py-2 hover:bg-gray-100">
+            <router-link to="#">Categoría 2</router-link>
+          </li>
+          <li class="px-4 py-2 hover:bg-gray-100">
+            <router-link to="#">Categoría 3</router-link>
+          </li>
         </ul>
       </li>
+    </ul>
+
+    <!-- Elementos en el centro -->
+    <ul class="flex items-center gap-14 mr-28">
       <li><router-link to="#">Inicio</router-link></li>
       <li><router-link to="#">Sobre nosotros</router-link></li>
       <li class="flex items-center gap-1">
@@ -32,6 +31,10 @@
         <ChevronDownIcon class="size-4" />
       </li>
       <li><router-link to="#">Contacto</router-link></li>
+    </ul>
+
+    <!-- Promociones al final -->
+    <ul class="flex items-center gap-4">
       <li class="flex items-center gap-2">
         <BanknotesIcon class="size-5" />
         <router-link to="#">Promociones</router-link>
@@ -45,11 +48,3 @@ import { Bars3Icon, ChevronDownIcon } from "@heroicons/vue/24/solid";
 import { BanknotesIcon } from "@heroicons/vue/24/outline";
 </script>
 
-<style scoped>
-/* Estilo opcional para el menú desplegable */
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-</style>
