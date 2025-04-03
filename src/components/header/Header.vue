@@ -13,10 +13,10 @@
         />
         <Search/>
         <User/> 
-        <Cart/>
+        <Cart @open-cart="cartOpen = true" />
       </div>
     </div>
-
+    <CartSideBar :cartOpen="cartOpen" @close-cart="cartOpen = false"/>
     <!-- Navbar solo se muestra en dispositivos móviles -->
     <Navbar v-if="menuOpen" @close-menu="menuOpen = false" :menuOpen="menuOpen"/>
   </div>
@@ -34,8 +34,11 @@ import Cart from "@/components/header/Cart.vue";
 import Navbar from "@/components/header/Navbar.vue";
 import NavbarDesktop from "@/components/header/NavbarDesktop.vue"; // Nuevo componente
 import logo from "@/img/logo.png";
+import CartSideBar from "@/components/cart/CartSideBar.vue";
 
 const menuOpen = ref(false);
+
+const cartOpen = ref(false);
 </script>
 
 
