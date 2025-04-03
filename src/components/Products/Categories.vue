@@ -49,8 +49,8 @@ const categorias = ref([
 </script>
 
 <template>
-    <div class="max-w-[1740px] mx-auto mt-10">
-        <h1 class="text-2xl font-semibold pl-4 mb-2 text-orange-600">Categorias</h1>
+    <div class="max-w-[1740px] mx-auto mt-8">
+        <h1 class="text-2xl font-semibold pl-4 mb-2 text-orange-600">Categorias Populares</h1>
         <div class="px-6 flex justify-center w-full h-[280px]">
           <Swiper
             :slides-per-view="'8'"
@@ -60,8 +60,8 @@ const categorias = ref([
             class="mySwiper"
           >
             <SwiperSlide v-for="categoria in categorias" :key="categoria.nombre">
-              <div class="flex flex-col items-center justify-center text-center gap-3 pt-5">
-                  <div class="w-[160px] h-[160px] bg-gray-100 rounded-full flex flex-col items-center justify-center shadow-md hover:scale-110 transition-transform ease-in-out cursor-pointer">
+              <div class="flex flex-col items-center justify-center text-center gap-3 pt-4 cursor-pointer">
+                  <div class="w-[160px] h-[160px] bg-gray-100 rounded-full flex flex-col items-center justify-center shadow-md hover:scale-110 transition-transform ease-in-out ">
                     <img :src="categoria.imagen" alt="Imagen Categoría" class="w-24 h-24 rounded-full object-cover">
                     <!-- <h3 class="mt-2 text-base  text-center font-semibold">{{ categoria.nombre }}</h3> -->
                   </div>

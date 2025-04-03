@@ -7,17 +7,12 @@
         <router-link to="#">Categorías</router-link>
         <!-- Lista desplegable -->
         <ul
-          class="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md opacity-0 invisible hover:cursor-pointer group-hover:opacity-100 group-hover:visible group-hover:flex flex-col transition-all ease-in-out z-10 w-48 py-2"
-        >
-          <li class="px-4 py-2 hover:bg-gray-100">
-            <router-link to="#">Categoría 1</router-link>
+          class="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md opacity-0 invisible h-72 overflow-hidden overflow-y-scroll hover:cursor-pointer group-hover:opacity-100 group-hover:visible group-hover:flex flex-col transition-all ease-in-out z-10 w-48 py-2">
+          <li v-for="categoria, in categorias" :key="categoria.nombre" class="px-4 py-2 hover:bg-gray-100 transition-all ease-out">
+            <router-link to="#">{{ categoria.nombre }}</router-link>
           </li>
-          <li class="px-4 py-2 hover:bg-gray-100">
-            <router-link to="#">Categoría 2</router-link>
-          </li>
-          <li class="px-4 py-2 hover:bg-gray-100">
-            <router-link to="#">Categoría 3</router-link>
-          </li>
+
+
         </ul>
       </li>
     </ul>
@@ -44,7 +39,32 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
+import icono from "@/img/icono.png";
 import { Bars3Icon, ChevronDownIcon } from "@heroicons/vue/24/solid";
 import { BanknotesIcon } from "@heroicons/vue/24/outline";
-</script>
 
+const categorias = ref([
+  { nombre: "Herramientas", imagen: `${icono}` },
+  { nombre: "Pinturas", imagen: `${icono}` },
+  { nombre: "Fontanería", imagen: `${icono}` },
+  { nombre: "Electricidad", imagen: `${icono}` },
+  { nombre: "Cerrajería", imagen: `${icono}` },
+  { nombre: "abrasivos", imagen: `${icono}` },
+  { nombre: "Automotriz", imagen: `${icono}` },
+  { nombre: "plomeria", imagen: `${icono}` },
+  { nombre: "viveres", imagen: `${icono}` },
+  { nombre: "ganaderia", imagen: `${icono}` },
+  { nombre: "impermeabilizacion", imagen: `${icono}` },
+  { nombre: "pegamentos", imagen: `${icono}` },
+  { nombre: "iluminacion", imagen: `${icono}` },
+  { nombre: "herreria", imagen: `${icono}` },
+  { nombre: "baño y accesorios", imagen: `${icono}` },
+  { nombre: "Carga", imagen: `${icono}` },
+  { nombre: "agricola", imagen: `${icono}` },
+  { nombre: "seguridad", imagen: `${icono}` },
+  { nombre: "soldadura", imagen: `${icono}` },
+  { nombre: "miscelaneos", imagen: `${icono}` },
+
+]);
+</script>
