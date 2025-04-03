@@ -35,26 +35,30 @@ const categorias = ref([
     
 ]);
 
-// const fetchCategorias = async () => {
-//   try {
-//     const response = await fetch("http://192.168.1.100/bd/getcategories.php");
-//     if (!response.ok) {
-//       throw new Error("Error al obtener categorías");
-//     }
-//     categorias.value = await response.json();
-//   } catch (error) {
-//     console.error("Error en la carga de categorías:", error);
-//   }
-// };
+const fetchCategorias = async () => {
+  try {
+    const response = await fetch("http://192.168.3.10/API_REST/example1/api-rest/get_all_categories.php");
+    // const response = await fetch("http://arci.com.ve/API_REST/example1/api-rest/get_all_categories.php");
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+onMounted(() => {
+  fetchCategorias();
+});
+
 </script>
 
 <template>
     <div class="max-w-[1740px] mx-auto mt-8">
         <h1 class="text-2xl font-semibold pl-4 mb-2 text-orange-600">Categorias Populares</h1>
-        <div class="px-6 flex justify-center w-full h-[280px]">
+        <div class="px-6 flex justify-center w-full h-[260px]">
           <Swiper
             :slides-per-view="'8'"
-            :space-between="15"
+            :space-between="14"
             :navigation="false"
             :pagination="{ clickable: false }"
             class="mySwiper"

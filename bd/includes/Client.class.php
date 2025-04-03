@@ -125,8 +125,7 @@ class Client
         }
     }
 
-    public static function get_all_categories()
-    {
+    public static function get_all_categories() {
         $database = new Database();
         $conn = $database->getConnection();
         $stmt = $conn->prepare('SELECT * FROM categorias');

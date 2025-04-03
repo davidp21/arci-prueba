@@ -1,9 +1,9 @@
 <?php
     class Database{
-        private $host = '127.0.0.1';
+        private $host = 'localhost';
         private $user = 'root';
         private $password = '';
-        private $database = 'arci';
+        private $database = 'test';
 
         public function getConnection(){
             $hostDB = "mysql:host=".$this->host.";dbname=".$this->database.";";
