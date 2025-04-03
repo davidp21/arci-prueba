@@ -1,5 +1,5 @@
 <template>
-  <section class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 max-w-[1740px] m-auto">
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 max-w-[1740px] m-auto mt-5">
     <!-- Slider de la imagen principal con transición suave -->
     <div class="relative rounded-xl shadow-lg h-[250px] md:col-span-2 md:h-[400px] overflow-hidden">
       <div class="absolute inset-0 flex transition-transform duration-700 ease-in-out"
