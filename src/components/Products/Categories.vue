@@ -7,47 +7,52 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import SwiperCore from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
+import { fetchCategorias } from "../../services/services";
 
-// Configurar módulos de Swiper
+
 SwiperCore.use([Navigation, Pagination]);
 
-const categorias = ref([
-    { nombre: "Herramientas", imagen: `${icono}` },
-    { nombre: "Pinturas", imagen: `${icono}` },
-    { nombre: "Fontanería", imagen: `${icono}` },
-    { nombre: "Electricidad", imagen: `${icono}` },
-    { nombre: "Cerrajería", imagen: `${icono}` },
-    { nombre: "abrasivos", imagen: `${icono}` },
-    { nombre: "Automotriz", imagen: `${icono}` },
-    { nombre: "plomeria", imagen: `${icono}` },
-    { nombre: "viveres", imagen: `${icono}` },
-    { nombre: "ganaderia", imagen: `${icono}` },
-    { nombre: "impermeabilizacion", imagen: `${icono}` },
-    { nombre: "pegamentos", imagen: `${icono}` },
-    { nombre: "iluminacion", imagen: `${icono}` },
-    { nombre: "herreria", imagen: `${icono}` },
-    { nombre: "baño y accesorios", imagen: `${icono}` },
-    { nombre: "Carga", imagen: `${icono}` },
-    { nombre: "agricola", imagen: `${icono}` },
-    { nombre: "seguridad", imagen: `${icono}` },
-    { nombre: "soldadura", imagen: `${icono}` },
-    { nombre: "miscelaneos", imagen: `${icono}` },
-    
-]);
+// const categorias = ref([
+//     { nombre: "Herramientas", imagen: `${icono}` },
+//     { nombre: "Pinturas", imagen: `${icono}` },
+//     { nombre: "Fontanería", imagen: `${icono}` },
+//     { nombre: "Electricidad", imagen: `${icono}` },
+//     { nombre: "Cerrajería", imagen: `${icono}` },
+//     { nombre: "abrasivos", imagen: `${icono}` },
+//     { nombre: "Automotriz", imagen: `${icono}` },
+//     { nombre: "plomeria", imagen: `${icono}` },
+//     { nombre: "viveres", imagen: `${icono}` },
+//     { nombre: "ganaderia", imagen: `${icono}` },
+//     { nombre: "impermeabilizacion", imagen: `${icono}` },
+//     { nombre: "pegamentos", imagen: `${icono}` },
+//     { nombre: "iluminacion", imagen: `${icono}` },
+//     { nombre: "herreria", imagen: `${icono}` },
+//     { nombre: "baño y accesorios", imagen: `${icono}` },
+//     { nombre: "Carga", imagen: `${icono}` },
+//     { nombre: "agricola", imagen: `${icono}` },
+//     { nombre: "seguridad", imagen: `${icono}` },
+//     { nombre: "soldadura", imagen: `${icono}` },
+//     { nombre: "miscelaneos", imagen: `${icono}` },
+  
+// ]);
 
-const fetchCategorias = async () => {
+
+
+const categorias = ref([]);
+
+const obtenerCategorias = async () => {
   try {
-    const response = await fetch("http://192.168.3.10/API_REST/example1/api-rest/get_all_categories.php");
-    // const response = await fetch("http://arci.com.ve/API_REST/example1/api-rest/get_all_categories.php");
-    const data = await response.json();
-    console.log(data);
+    const { data } = await fetchCategorias(); 
+    categorias.value = data; 
+    console.log(categorias.value); 
   } catch (error) {
-    console.log(error);
+    console.error("Error al obtener las categorías:", error);
   }
 };
 
+
 onMounted(() => {
-  fetchCategorias();
+  obtenerCategorias();
 });
 
 </script>
@@ -66,80 +71,22 @@ onMounted(() => {
             <SwiperSlide v-for="categoria in categorias" :key="categoria.nombre">
               <div class="flex flex-col items-center justify-center text-center gap-3 pt-4 cursor-pointer">
                   <div class="w-[160px] h-[160px] bg-gray-100 rounded-full flex flex-col items-center justify-center shadow-md hover:scale-110 transition-transform ease-in-out ">
-                    <img :src="categoria.imagen" alt="Imagen Categoría" class="w-24 h-24 rounded-full object-cover">
+                    <img :src='`src/${categoria.cImagen}`' alt="Imagen Categoría" class="w-24 h-24 rounded-full object-cover">
                     <!-- <h3 class="mt-2 text-base  text-center font-semibold">{{ categoria.nombre }}</h3> -->
                   </div>
-                  <h3 class="font-medium text-lg text-orange-600">{{ categoria.nombre }}</h3>
+                  <h3 class="font-medium text-lg text-orange-600">{{ categoria.cNombre_cat.toLowerCase() }}</h3>
               </div>
             </SwiperSlide>
           </Swiper>
         </div>
-
     </div>
 </template>
 
 <style>
-/* Ajustes opcionales */
+
 .mySwiper .swiper-button-next, 
 .mySwiper .swiper-button-prev {
   color: #333;
 }
 </style>
 
-<!-- <template>
-
-    <div class="w-full">
-        <div
-            class="flex gap-6 mt-10 flex-col sm:flex-row justify-center items-center max-w-[1740px] m-auto overflow-x-auto p-4">
-            <div v-for="categoria in categorias" :key="categoria.nombre"
-                class="w-[160px] h-[160px] bg-gray-100 shadow-lg rounded-full flex flex-col items-center justify-center text-center shrink-0">
-                <img :src="categoria.imagen" :alt="categoria.nombre" class="w-24 h-24 object-cover rounded-full">
-                <h3 class="mt-1 text-base font-semibold">{{ categoria.nombre }}</h3>
-            </div>
-        </div>
-    </div>
-
-</template>
-
-<script setup>
-import { onMounted, ref } from "vue";
-import icono from "@/img/icono.png";
-
-
-const data = async () => {
-    try {
-        const response = await fetch("../../../bd/api-rest/get_all_categories.php");
-        const data = await response.json();
-    } catch (error) {
-        console.error( error);
-    }
-};
-
-// onMounted(() => {
-//     data();
-// });
-
-
-data()
-
-const categorias = ref([
-    { nombre: "Herramientas", imagen: `${icono}` },
-    { nombre: "Pinturas", imagen: `${icono}` },
-    { nombre: "Fontanería", imagen: `${icono}` },
-    { nombre: "Electricidad", imagen: `${icono}` },
-    { nombre: "Cerrajería", imagen: `${icono}` },
-    { nombre: "Construcción", imagen: `${icono}` },
-    { nombre: "Construcción", imagen: `${icono}` },
-    { nombre: "Construcción", imagen: `${icono}` },
-    { nombre: "Construcción", imagen: `${icono}` },
-    { nombre: "Construcción", imagen: `${icono}` },
-    { nombre: "Construcción", imagen: `${icono}` },
-]);
-</script>
-
-<style scoped>
-/* Ocultar barra de desplazamiento en navegadores modernos */
-/* ::-webkit-scrollbar {
-    display: none;
-} */
-</style> -->
