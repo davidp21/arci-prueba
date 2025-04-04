@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-orange-500 w-full px-4 shadow-lg">
+  <div class="bg-orange-500 w-full px-3 shadow-lg">
     <div class="max-w-[1740px] flex flex-col lg:flex-row items-center lg:justify-between m-auto py-2">
       <div>
         <img :src="logo" alt="logo de arci" width="180" class="lg:w-[180px]">
@@ -7,18 +7,15 @@
       <!-- input y cart -->
       <div class="flex justify-between items-center w-full gap-3 mt-2 md:mt-0">
         <!-- Botón hamburguesa que solo se ve en dispositivos móviles -->
-        <Bars3Icon 
-          class="size-8 text-white block lg:hidden cursor-pointer"
-          @click="menuOpen = !menuOpen"
-        />
-        <Search/>
-        <User/> 
+        <Bars3Icon class="size-8 text-white block lg:hidden cursor-pointer" @click="menuOpen = !menuOpen" />
+        <Search />
+        <User />
         <Cart @open-cart="cartOpen = true" />
       </div>
     </div>
-    <CartSideBar :cartOpen="cartOpen" @close-cart="cartOpen = false"/>
+    <CartSideBar :cartOpen="cartOpen" @close-cart="cartOpen = false" />
     <!-- Navbar solo se muestra en dispositivos móviles -->
-    <Navbar v-if="menuOpen" @close-menu="menuOpen = false" :menuOpen="menuOpen"/>
+    <Navbar v-if="menuOpen" @close-menu="menuOpen = false" :menuOpen="menuOpen" />
   </div>
 
   <!-- Navbar fijo para escritorio -->
@@ -40,5 +37,3 @@ const menuOpen = ref(false);
 
 const cartOpen = ref(false);
 </script>
-
-
