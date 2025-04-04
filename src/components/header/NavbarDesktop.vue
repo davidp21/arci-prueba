@@ -41,31 +41,49 @@
 
 <script setup>
 import { ref } from "vue";
-import icono from "@/img/icono.png";
+// import icono from "@/img/icono.png";
 import { Bars3Icon, ChevronDownIcon } from "@heroicons/vue/24/solid";
 import { BanknotesIcon } from "@heroicons/vue/24/outline";
+import { fetchCategorias } from "../../services/services";
 
-const categorias = ref([
-  { nombre: "Herramientas", imagen: `${icono}` },
-  { nombre: "Pinturas", imagen: `${icono}` },
-  { nombre: "Fontanería", imagen: `${icono}` },
-  { nombre: "Electricidad", imagen: `${icono}` },
-  { nombre: "Cerrajería", imagen: `${icono}` },
-  { nombre: "abrasivos", imagen: `${icono}` },
-  { nombre: "Automotriz", imagen: `${icono}` },
-  { nombre: "plomeria", imagen: `${icono}` },
-  { nombre: "viveres", imagen: `${icono}` },
-  { nombre: "ganaderia", imagen: `${icono}` },
-  { nombre: "impermeabilizacion", imagen: `${icono}` },
-  { nombre: "pegamentos", imagen: `${icono}` },
-  { nombre: "iluminacion", imagen: `${icono}` },
-  { nombre: "herreria", imagen: `${icono}` },
-  { nombre: "baño y accesorios", imagen: `${icono}` },
-  { nombre: "Carga", imagen: `${icono}` },
-  { nombre: "agricola", imagen: `${icono}` },
-  { nombre: "seguridad", imagen: `${icono}` },
-  { nombre: "soldadura", imagen: `${icono}` },
-  { nombre: "miscelaneos", imagen: `${icono}` },
+// const categorias = ref([
+//   { nombre: "Herramientas", imagen: `${icono}` },
+//   { nombre: "Pinturas", imagen: `${icono}` },
+//   { nombre: "Fontanería", imagen: `${icono}` },
+//   { nombre: "Electricidad", imagen: `${icono}` },
+//   { nombre: "Cerrajería", imagen: `${icono}` },
+//   { nombre: "abrasivos", imagen: `${icono}` },
+//   { nombre: "Automotriz", imagen: `${icono}` },
+//   { nombre: "plomeria", imagen: `${icono}` },
+//   { nombre: "viveres", imagen: `${icono}` },
+//   { nombre: "ganaderia", imagen: `${icono}` },
+//   { nombre: "impermeabilizacion", imagen: `${icono}` },
+//   { nombre: "pegamentos", imagen: `${icono}` },
+//   { nombre: "iluminacion", imagen: `${icono}` },
+//   { nombre: "herreria", imagen: `${icono}` },
+//   { nombre: "baño y accesorios", imagen: `${icono}` },
+//   { nombre: "Carga", imagen: `${icono}` },
+//   { nombre: "agricola", imagen: `${icono}` },
+//   { nombre: "seguridad", imagen: `${icono}` },
+//   { nombre: "soldadura", imagen: `${icono}` },
+//   { nombre: "miscelaneos", imagen: `${icono}` },
 
-]);
+// ]);
+
+const categorias = ref([]);
+
+const obtenerCategorias = async () => {
+  try {
+    const { data } = await fetchCategorias();
+    categorias.value = data;
+    console.log(categorias.value);
+  } catch (error) {
+    console.error("Error al obtener las categorías:", error);
+  }
+};
+
+
+onMounted(() => {
+  obtenerCategorias();
+});
 </script>
