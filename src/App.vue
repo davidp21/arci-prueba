@@ -7,8 +7,8 @@ import ProductCard from '@/components/Products/ProductCard.vue';
 <template>
 
   <div class="w-full m-auto">
-    <router-view/>
-    <!-- <ProductCard/> -->
+    <!-- <router-view/> -->
+    <ProductCard/>
   </div>
   
 </template>
