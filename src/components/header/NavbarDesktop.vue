@@ -8,9 +8,9 @@
         <!-- Lista desplegable -->
         <ul
           class="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md opacity-0 invisible h-72 overflow-hidden overflow-y-scroll hover:cursor-pointer group-hover:opacity-100 group-hover:visible group-hover:flex flex-col transition-all ease-in-out z-10 w-48 py-2">
-          <li v-for="categoria, in categorias" :key="categoria.nombre"
+          <li v-for="categoria, in categorias" :key="categoria.nID_cat"
             class="px-4 py-2 hover:bg-gray-200 transition-all ease-out">
-            <router-link to="#">{{ categoria.nombre }}</router-link>
+            <router-link class="text-sm" to="#">{{ categoria.cNombre_cat }}</router-link>
           </li>
 
 
@@ -40,7 +40,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref,onMounted } from "vue";
 // import icono from "@/img/icono.png";
 import { Bars3Icon, ChevronDownIcon } from "@heroicons/vue/24/solid";
 import { BanknotesIcon } from "@heroicons/vue/24/outline";

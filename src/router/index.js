@@ -6,7 +6,7 @@ import ContactView from '@/pages/ContactView.vue'
 import LoginView from '@/pages/LoginView.vue'
 
 const routes = [
-  { path: '/', component: HomeView , name: 'home' },
+  { path: '/', component: HomeView, name: 'home' },
   { path: '/home', redirect: { name: 'home' } },
   { path: '/sobre nosotros', component: AboutView, name: 'about' },
   { path: '/contacto', component:ContactView, name: 'contact' },
