@@ -3,7 +3,7 @@
     <form @submit.prevent="onSubmit" method="POST" class="flex flex-col gap-4 w-[300px] bg-white p-10">
       <!-- <input v-model="nombre" type="text" placeholder="nombre" class="border-2 border-black p-2">
       <input v-model="apellido" type="text" placeholder="apellido" class="border-2 border-black p-2"> -->
-      <input v-model="email" type="text" placeholder="correo" class="border-2 border-black p-2 outline-none rounded-md">
+      <input v-model="email" type="email" placeholder="correo" class="border-2 border-black p-2 outline-none rounded-md">
       <!-- <input v-model="cedula" type="email" placeholder="direccion" class="border-2 border-black p-2">
       <input v-model="contrasena" type="text" placeholder="cedula" class="border-2 border-black p-2">
       <input v-model="direccion" type="password" placeholder="contraseña" class="border-2 border-black p-2"> -->
@@ -32,7 +32,7 @@ const crearUsuario = async () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
       },
       body: JSON.stringify({
         // nombre: nombre.value,//
