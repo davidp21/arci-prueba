@@ -1,5 +1,5 @@
 <template>
-  <div class="w-60 h-[330px] border-2 p-4 m-10">
+  <div class="w-60 h-[330px] border border-gray-300 p-4 m-10">
     <div class="w-full h-1/2 bg-gray-200 flex justify-center items-center">
       <img src="../../img/Icono.png" alt="imagen catalogo" class="w-40 object-cover">
     </div>
